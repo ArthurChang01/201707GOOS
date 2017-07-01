@@ -212,9 +212,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgetContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\BudgetRepository.cs" />
     <Compile Include="Models\BudgetService.cs" />
     <Compile Include="Models\IBudgetService.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IRepository.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

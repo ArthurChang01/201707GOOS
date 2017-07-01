@@ -61,6 +61,7 @@ namespace GOOS_SampleTests.Hooks
         public static void RegisterDIContainer()
         {
             UnityContainer = new UnityContainer();
+            UnityContainer.RegisterType<IRepository<GOOS_Sample.Models.Budget>, BudgetRepository>();
             UnityContainer.RegisterType<IBudgetService, BudgetService>();
         }
         public static IUnityContainer UnityContainer
