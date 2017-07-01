@@ -49,7 +49,7 @@ namespace GOOS_SampleTests.Steps
         [Then(@"it should exist a budget record in budget table")]
         public void ThenItShouldExistABudgetRecordInBudgetTable(Table table)
         {
-            using (var dbcontext = new BudgetContext())
+            using (var dbcontext = new BudgetContextForTest())
             {
                 var budget = dbcontext.Budgets
                     .FirstOrDefault();

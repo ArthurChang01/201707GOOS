@@ -127,7 +127,7 @@
       <DependentUpon>BudgetController.feature</DependentUpon>
     </Compile>
     <Compile Include="DataModelsForIntegrationTest\Budget.cs" />
-    <Compile Include="DataModelsForIntegrationTest\BudgetContext.cs" />
+    <Compile Include="DataModelsForIntegrationTest\BudgetContextForTest.cs" />
     <Compile Include="Features\BudgeCreate.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

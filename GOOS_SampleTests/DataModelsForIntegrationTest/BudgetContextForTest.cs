@@ -2,9 +2,9 @@ namespace GOOS_SampleTests.DataModelsForIntegrationTest
 {
     using System.Data.Entity;
 
-    public partial class BudgetContext : DbContext
+    public partial class BudgetContextForTest : DbContext
     {
-        public BudgetContext()
+        public BudgetContextForTest()
             : base("name=Budget")
         {
         }
