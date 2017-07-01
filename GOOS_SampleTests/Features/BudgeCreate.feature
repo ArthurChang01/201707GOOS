@@ -1,4 +1,4 @@
-﻿
+﻿@web
 Feature: BudgetCreate
  
 Scenario: Add a budget successfully
