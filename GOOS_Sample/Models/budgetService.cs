@@ -1,4 +1,6 @@
-﻿namespace GOOS_Sample.Models
+﻿using System;
+
+namespace GOOS_Sample.Models
 {
     public class BudgetService : IBudgetService
     {
@@ -9,21 +11,28 @@
             _budgetRepositoryStub = budgetRepositoryStub;
         }
 
+        public event EventHandler Created;
+        public event EventHandler Updated;
+
         public void Create(BudgetAddViewModel model)
         {
-            //using (BudgetEntities ctx = new BudgetEntities())
-            //{
-            //    Budget bd = new Budget()
-            //    {
-            //        Amount = model.Amount,
-            //        YearMonth = model.Month
-            //    };
-            //    ctx.Budgets.Add(bd);
-            //    ctx.SaveChanges();
-            //}
 
-            var budget = new Budget() { Amount = model.Amount, YearMonth = model.Month };
-            this._budgetRepositoryStub.Save(budget);
+            var budget = this._budgetRepositoryStub.Read(x => x.YearMonth == model.Month);
+            if (budget == null)
+            {
+                this._budgetRepositoryStub.Save(new Budget() { Amount = model.Amount, YearMonth = model.Month });
+
+                var handler = this.Created;
+                handler?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                budget.Amount = model.Amount;
+                this._budgetRepositoryStub.Save(budget);
+
+                var handler = this.Updated;
+                handler?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

@@ -149,7 +149,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgeCreate.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\BudgetCreateSteps.cs" />
+    <Compile Include="InsertTable.cs" />
+    <Compile Include="Steps\BudgetCreateSteps.cs" />
     <Compile Include="Hooks\Hooks.cs" />
     <Compile Include="Models\BudgetServiceTest.cs" />
     <Compile Include="PageObjects\PageContext.cs" />
