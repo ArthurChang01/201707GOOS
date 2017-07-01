@@ -1,5 +1,7 @@
 ﻿using FluentAutomation;
+using GOOS_Sample.Models;
 using GOOS_SampleTests.DataModelsForIntegrationTest;
+using Microsoft.Practices.Unity;
 using System.Linq;
 using TechTalk.SpecFlow;
 
@@ -52,6 +54,19 @@ namespace GOOS_SampleTests.Hooks
 
                 dbcontext.SaveChangesAsync();
             }
+        }
+
+
+        [BeforeTestRun()]
+        public static void RegisterDIContainer()
+        {
+            UnityContainer = new UnityContainer();
+            UnityContainer.RegisterType<IBudgetService, BudgetService>();
+        }
+        public static IUnityContainer UnityContainer
+        {
+            get;
+            set;
         }
     }
 }

@@ -2,6 +2,7 @@
 using GOOS_Sample.Controllers;
 using GOOS_Sample.Models;
 using GOOS_SampleTests.DataModelsForIntegrationTest;
+using Microsoft.Practices.Unity;
 using System.Linq;
 using System.Web.Mvc;
 using TechTalk.SpecFlow;
@@ -17,7 +18,8 @@ namespace GOOS_SampleTests.Steps
         [BeforeScenario()]
         public void BeforeScenario()
         {
-            this._budgetController = new BudgetController(new BudgetService());
+            IBudgetService svc = Hooks.Hooks.UnityContainer.Resolve<IBudgetService>();
+            this._budgetController = new BudgetController(svc);
         }
 
 
