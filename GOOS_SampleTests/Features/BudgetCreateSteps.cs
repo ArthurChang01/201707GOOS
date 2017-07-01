@@ -2,10 +2,10 @@
 using GOOS_SampleTests.PageObjects;
 using TechTalk.SpecFlow;
 
-namespace GOOS_SampleTests.Steps
+namespace GOOS_SampleTests.Features
 {
     [Binding]
-    [Scope(Feature = "BudgeCreate")]
+    [Scope(Feature = "BudgetCreate")]
     public class BudgetCreateSteps : FluentTest
     {
         private BudgetCreatePage _budgetCreatePage;
@@ -21,13 +21,11 @@ namespace GOOS_SampleTests.Steps
             SeleniumWebDriver.Bootstrap(SeleniumWebDriver.Browser.Chrome);
         }
 
-
         [Given(@"go to adding budget page")]
         public void GivenGoToAddingBudgetPage()
         {
             this._budgetCreatePage.Go();
         }
-
 
         [When(@"I add a buget (.*) for ""(.*)""")]
         public void WhenIAddABugetFor(int amount, string yearMonth)
@@ -37,7 +35,6 @@ namespace GOOS_SampleTests.Steps
                 .Month(yearMonth)
                 .AddBudget();
         }
-
 
         [Then(@"it should display ""(.*)""")]
         public void ThenItShouldDisplay(string message)
